@@ -60,7 +60,7 @@ Matplotlib, Seaborn 사용 데이터 시각화
 ### 프로젝트 소스코드 
 Analysis-of-k-pop-lylics.ipynb
 
-Analysis-of-k-pop-lylics.py
+analysis-of-k-pop-lylics.py
 
 ### 프로젝트 결과물
 ![kpop_english_ratio](https://github.com/202244003/Analysis-of-k-pop-Lylics/blob/main/result/kpop_english_ratio.png)
