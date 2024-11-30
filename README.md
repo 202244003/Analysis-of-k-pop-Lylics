@@ -58,7 +58,9 @@ Matplotlib, Seaborn 사용 데이터 시각화
 연도 선택에 따라 ./result/Korean_Words_Ranking_{{연도}.png, English_Words_Ranking_{{연도}.png 형식으로 저장.
 
 ### 프로젝트 소스코드 
-Analysis-of-k-pop-Lylics.ipynb
+Analysis-of-k-pop-lylics.ipynb
+
+analysis-of-k-pop-lylics.py
 
 ### 프로젝트 결과물
 ![kpop_english_ratio](https://github.com/202244003/Analysis-of-k-pop-Lylics/blob/main/result/kpop_english_ratio.png)
