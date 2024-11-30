@@ -53,7 +53,7 @@ Matplotlib, Seaborn 사용 데이터 시각화
 제시함.	
 - K-pop 가사의 언어적 변화와 글로벌 시장에서의 성공 간의 관계를 데이터로 입증하여, K-pop의 글로벌 전략과 문화적 변화를 이해하는 데 기여함..
 #### 프로젝트 결과:
-- 언어 비율 변화 그래프: ./result/kpop_english_ratio.png
+- 연도별 언어 비율 변화 그래프: ./result/kpop_english_ratio.png
 - 연도별 상위 단어 그래프: 
 연도 선택에 따라 ./result/Korean_Words_Ranking_{{연도}.png, English_Words_Ranking_{{연도}.png 형식으로 저장.
 
@@ -61,4 +61,13 @@ Matplotlib, Seaborn 사용 데이터 시각화
 Analysis-of-k-pop-Lylics.ipynb
 
 ### 프로젝트 결과물
+![kpop_english_ratio](https://github.com/202244003/Analysis-of-k-pop-Lylics/blob/main/result/kpop_english_ratio.png)
+연도별 언어 비율 변화 그래프
 
+
+![English_Words_Ranking_2023.png](https://github.com/202244003/Analysis-of-k-pop-Lylics/blob/main/result/English_Words_Ranking_2023.png)
+연도별 영어 상위 단어 그래프 (2023)
+
+
+![Korean_Words_Ranking_2023.png](https://github.com/202244003/Analysis-of-k-pop-Lylics/blob/main/result/Korean_Words_Ranking2023.png)
+연도별 한국어 상위 단어 그래프 (2023)
