@@ -35,7 +35,7 @@ import konlpy
 from konlpy.tag import Hannanum, Okt
 import re
 
-raw_df = pd.read_csv('.content/lyrics_by_year.csv', encoding='utf-8') # 연도별 멜론 순위권 노래 가사 데이터 불러오기
+raw_df = pd.read_csv('./content/lyrics_by_year.csv', encoding='utf-8') # 연도별 멜론 순위권 노래 가사 데이터 불러오기
 df = raw_df.sort_values(by=['year', 'id']).reset_index(drop=True)  # year과 id 기준으로 정렬
 lyrics_all_df = df.copy()   # 작업용 Dataframe 생성
 unique_songs_all = lyrics_all_df.drop_duplicates(subset=['id'])   # id를 기준으로 중복 제거
@@ -308,7 +308,7 @@ def update_graph(year):
 # 위젯과 함수를 연결하여 화면에 표시
 widgets.interactive(update_graph, year=year_widget)
 
-# 2009년 첫 빌보드 진입 k-pop
+# 2009년 빌보드 Hot100 첫 진입 k-pop
 # 원더걸스 - Nobody
 
 filename = "./content/Nobody_lylics.txt"
@@ -357,6 +357,122 @@ ax.pie(
 )
 
 ax.set_title("원더걸스 Nobody 가사 분석", fontsize=14)
+plt.tight_layout()
+
+# 시각화 저장
+plt.savefig(save_file)
+print(f"시각화가 '{save_file}'에 저장되었습니다.")
+
+# 그래프 표시
+plt.show()
+
+# 2012년 빌보드 Hot100 2위
+# 싸이 - 강남스타일
+
+filename = "./content/강남스타일_lylics.txt"
+
+save_file = os.path.join(output_dir, "gangnamStyle_lyrics_english_ratio.png")
+
+try:
+    with open(filename, "r", encoding="utf-8") as file:
+        lyrics = file.read()
+except FileNotFoundError:
+    print(f"파일 '{filename}'을 찾을 수 없습니다.")
+    raise
+
+# 한국어, 영어 필터링 함수
+def filter_language(text, lang='kr'):
+    if lang == 'kr':
+        return re.sub('[^\uac00-\ud7a3\s]+', '', text)  # 한글만 남기기
+    elif lang == 'en':
+        return re.sub('[^a-zA-Z\s]+', '', text)  # 영어만 남기기
+    return ""
+
+# 한국어와 영어 단어 추출 및 비율 계산
+kr_words = filter_language(lyrics, lang='kr').split()
+en_words = filter_language(lyrics, lang='en').split()
+
+kr_count = len(kr_words)
+en_count = len(en_words)
+total_count = kr_count + en_count
+
+kr_ratio = kr_count / total_count if total_count > 0 else 0
+en_ratio = en_count / total_count if total_count > 0 else 0
+
+# 시각화 및 저장
+fig, ax = plt.subplots(figsize=(6, 6))
+labels = ['Korean', 'English']
+ratios = [kr_ratio, en_ratio]
+colors = ['#1f77b4', '#ff7f0e']
+
+ax.pie(
+    ratios,
+    labels=labels,
+    autopct='%1.1f%%',
+    startangle=90,
+    colors=colors,
+    textprops={'fontsize': 12}
+)
+
+ax.set_title("싸이-강남스타일 가사 분석", fontsize=14)
+plt.tight_layout()
+
+# 시각화 저장
+plt.savefig(save_file)
+print(f"시각화가 '{save_file}'에 저장되었습니다.")
+
+# 그래프 표시
+plt.show()
+
+# 2020년 빌보드 Hot100 k-pop 첫 1위
+# BTS - Dynamite
+
+filename = "./content/Dynamite_lylics.txt"
+
+save_file = os.path.join(output_dir, "dynamite_lyrics_english_ratio.png")
+
+try:
+    with open(filename, "r", encoding="utf-8") as file:
+        lyrics = file.read()
+except FileNotFoundError:
+    print(f"파일 '{filename}'을 찾을 수 없습니다.")
+    raise
+
+# 한국어, 영어 필터링 함수
+def filter_language(text, lang='kr'):
+    if lang == 'kr':
+        return re.sub('[^\uac00-\ud7a3\s]+', '', text)  # 한글만 남기기
+    elif lang == 'en':
+        return re.sub('[^a-zA-Z\s]+', '', text)  # 영어만 남기기
+    return ""
+
+# 한국어와 영어 단어 추출 및 비율 계산
+kr_words = filter_language(lyrics, lang='kr').split()
+en_words = filter_language(lyrics, lang='en').split()
+
+kr_count = len(kr_words)
+en_count = len(en_words)
+total_count = kr_count + en_count
+
+kr_ratio = kr_count / total_count if total_count > 0 else 0
+en_ratio = en_count / total_count if total_count > 0 else 0
+
+# 시각화 및 저장
+fig, ax = plt.subplots(figsize=(6, 6))
+labels = ['Korean', 'English']
+ratios = [kr_ratio, en_ratio]
+colors = ['#1f77b4', '#ff7f0e']
+
+ax.pie(
+    ratios,
+    labels=labels,
+    autopct='%1.1f%%',
+    startangle=90,
+    colors=colors,
+    textprops={'fontsize': 12}
+)
+
+ax.set_title("BTS-Dynamite 가사 분석", fontsize=14)
 plt.tight_layout()
 
 # 시각화 저장
